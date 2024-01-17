@@ -3,7 +3,7 @@
     <h3>欢迎来到MarkerHub的博客</h3>
     <div>
       <el-avatar :size="50" :src="require('@/assets/logo.png')"></el-avatar>
-      <div>小丑</div>
+      <div>MarkerHub</div>
     </div>
 
     <div class="maction">
@@ -25,16 +25,15 @@
 
 </script>
 
-<style scoped>
-
+  <style scoped>
   .m-content {
     max-width: 960px;
     margin: 0 auto;
     text-align: center;
   }
+
   .maction {
     margin: 10px 0;
   }
-
 </style>
 

@@ -2,24 +2,24 @@
   <!-- 主容器 -->
   <div>
     <!-- 引入自定义的头部组件 -->
-    <Header />
+    <Header></Header>
 
     <!-- 内容部分 -->
     <div class="m-content">
       <!-- 表单组件 -->
-      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm my-form">
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <!-- 标题表单项 -->
-        <el-form-item label="标题" prop="title" class="my-form-item">
+        <el-form-item label="标题" prop="title">
           <el-input v-model="ruleForm.title"></el-input>
         </el-form-item>
 
         <!-- 摘要表单项 -->
-        <el-form-item label="摘要" prop="description" class="my-form-item">
+        <el-form-item label="摘要" prop="description">
           <el-input type="textarea" v-model="ruleForm.description"></el-input>
         </el-form-item>
 
         <!-- 内容表单项，使用mavon-editor作为Markdown编辑器 -->
-        <el-form-item label="内容" prop="content" class="my-form-item">
+        <el-form-item label="内容" prop="content">
           <mavon-editor v-model="ruleForm.content"></mavon-editor>
         </el-form-item>
 
@@ -29,9 +29,13 @@
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
+
     </div>
+
   </div>
 </template>
+
+
 
 <script>
 import Header from "../components/Header";
@@ -106,8 +110,10 @@ export default {
 </script>
 
 <style scoped>
-  /* 样式保持不变 */
-  .m-content {
-    text-align: center;
-  }
+.m-content {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 </style>

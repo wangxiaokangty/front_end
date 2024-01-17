@@ -1,16 +1,15 @@
 <template>
   <!-- 主容器 -->
   <div>
-    <!-- 导航栏 -->
-    <nav>
-      <!-- 路由链接到不同的页面 -->
+
+<!--     <nav>
       <router-link to="/BlogLogin">BlogLogin</router-link> |
       <router-link to="/Blogs">Blogs</router-link> |
       <router-link to="/BlogEdit">BlogEdit</router-link> |
-<!--       <router-link to="/BlogDetail">BlogDetail</router-link> -->
-    </nav>
-    <!-- 路由视图，用于展示当前路由对应的组件 -->
+      <router-link to="/BlogDetail">BlogDetail</router-link>
+    </nav> -->
     <router-view />
+
   </div>
 </template>
 
@@ -47,6 +46,5 @@ import BlogLogin from "@/views/BlogLogin.vue";
 import Blogs from "@/views/Blogs.vue";
 import BlogDetail from "@/views/BlogDetail.vue";
 
-// 请注意，您还需要引入BlogEdit组件
 // import BlogEdit from "@/views/BlogEdit.vue";
 </script>
