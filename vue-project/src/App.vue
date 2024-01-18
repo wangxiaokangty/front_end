@@ -5,7 +5,7 @@
 <!--     <nav>
       <router-link to="/BlogLogin">BlogLogin</router-link> |
       <router-link to="/Blogs">Blogs</router-link> |
-      <router-link to="/BlogEdit">BlogEdit</router-link> |
+      <router-link to="/blog/add">BlogEdit</router-link> |
       <router-link to="/BlogDetail">BlogDetail</router-link>
     </nav> -->
     <router-view />
@@ -41,10 +41,5 @@ nav a.router-link-exact-active {
 </style>
 
 <script setup>
-// 引入路由页面组件
-import BlogLogin from "@/views/BlogLogin.vue";
-import Blogs from "@/views/Blogs.vue";
-import BlogDetail from "@/views/BlogDetail.vue";
 
-// import BlogEdit from "@/views/BlogEdit.vue";
 </script>

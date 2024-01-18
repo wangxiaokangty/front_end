@@ -1,15 +1,13 @@
 <template>
-  <!-- 容器 -->
   <div>
-    <!-- 头部组件 -->
+
     <Header/>
 
-    <!-- 博客详情容器 -->
     <div class="mblog">
-      <!-- 博客标题 -->
+
       <h2>{{ blog.title }}</h2>
       <!-- 编辑链接，仅当ownBlog为true时显示 -->
-      <el-link icon="el-icon-edit" v-if="ownBlog">
+      <el-link icon="el-icon-edit" v-if="ownBlog && blog.id">
         <!-- 路由链接到博客编辑页面 -->
         <router-link :to="{ name: 'BlogEdit', params: { blogId: blog.id } }">
           编辑
@@ -20,6 +18,7 @@
       <!-- 博客内容，使用v-html渲染Markdown转换后的HTML -->
       <div class="markdown-body" v-html="blog.content"></div>
     </div>
+
   </div>
 </template>
 
@@ -37,7 +36,8 @@ export default {
         title: "",
         content: ""
       },
-      ownBlog: false // 是否为自己的博客
+      ownBlog: true
+      // ownBlog: false // 是否为自己的博客
     }
   },
   created() {
@@ -53,7 +53,7 @@ export default {
       this.blog.content = md.render(blog.content);
 
       // 判断博客是否为当前用户所拥有
-      this.ownBlog = (blog.userId === this.$store.getters.getUser.id);
+      // this.ownBlog = (blog.userId === this.$store.getters.getUser.id);
     });
   }
 }

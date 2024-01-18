@@ -72,7 +72,5 @@ export default {
 .mpage {
   margin: 0 auto;
   /* 自动外边距实现居中 */
-  text-align: center;
-  /* 文本居中 */
 }
 </style>

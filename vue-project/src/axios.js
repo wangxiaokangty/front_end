@@ -5,7 +5,7 @@ import router from './router'
 import store from './store'
 
 
-axios.defaults.baseURL = "http://localhost:8080"
+axios.defaults.baseURL = /* "http://localhost:8080" */"https://mock.apifox.com/m1/3650195-0-default"
 
 // 前置拦截
 axios.interceptors.request.use(config => {

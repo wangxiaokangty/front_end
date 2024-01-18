@@ -17,12 +17,18 @@ const routes = [
     component: () => import('../views/Blogs.vue')
   },
   {
-    path: '/BlogEdit',
+    path: '/blog/add',
+    name: 'BlogAdd',
+    component: () => import('../views/BlogEdit.vue')
+  },
+
+  {
+    path: '/blog/:blogId/edit',
     name: 'BlogEdit',
     component: () => import('../views/BlogEdit.vue')
   },
   {
-    path: '/BlogDetail',
+    path: '/blog/:blogId',
     name: 'BlogDetail',
     component: () => import('../views/BlogDetail.vue')
   }
