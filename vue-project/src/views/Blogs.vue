@@ -23,8 +23,7 @@
     </vue-particles>
 
 
-    <div class="welcome-page-center" style="max-width: 960px;margin-left: 200px;
-  margin-right: auto;">
+    <div class="welcome-page-center">
       <Header></Header>
       <!-- 时间线组件，用于展示博客条目 -->
       <el-timeline>
@@ -103,11 +102,10 @@ export default {
   width: 70%;
   height: 50%;
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
   bottom: 0;
-  margin: 0;
+  max-width: 960px;
+  margin-left: 200px;
 }
 
 </style>

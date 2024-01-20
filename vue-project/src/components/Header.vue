@@ -1,8 +1,8 @@
 <template>
   <div class="m-content">
-    <h3>欢迎来到MarkerHub的博客</h3>
+    <h3>欢迎来到小丑博客</h3>
     <div class="block">
-      <el-avatar :size="50" :src="user.avatar"></el-avatar>
+      <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
       <div>{{ user.username }}</div>
     </div>
 
@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import pic from "@/assets/123.jpg"
+
 export default {
   name: "Header",
   data() {

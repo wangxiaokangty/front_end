@@ -42,11 +42,31 @@
           <el-input name="password" :prefix-icon="Lock" type="password" placeholder="请输入密码"
                     v-model="registerData.password"></el-input>
         </el-form-item>
+        <el-dialog
+            v-model="dialogVisible"
+            title="提示"
+            width="30%"
+            :before-close="handleClose"
+        >
+          <span>您可以重新注册一个账号<br></span>
+          <span>或者使用公共账号<br></span>
+          <span>用户名：user1<br></span>
+          <span>密码：password1<br></span>
+          <template #footer>
+      <span class="dialog-footer">
+        <el-button @click="dialogVisible = false">取消</el-button>
+        <el-button type="primary" @click="dialogVisible = false">
+          好的
+        </el-button>
+      </span>
+          </template>
+        </el-dialog>
         <el-form-item class="flex">
           <div class="flex">
             <el-checkbox>记住我</el-checkbox>
-            <el-link type="primary" :underline="false">忘记密码？</el-link>
+            <el-link @click="dialogVisible = true" type="primary" :underline="false">忘记密码？</el-link>
           </div>
+
         </el-form-item>
         <!-- 登录按钮 -->
         <el-form-item>
@@ -111,6 +131,8 @@ const clearRegisterData = () => {
   }
 }
 
+const dialogVisible = ref(false)
+
 import axios from "axios";
 import store from "@/store";
 import router from "@/router";
@@ -152,6 +174,16 @@ const register = () =>{
     // 因为还没有登录，所以会到登录
     router.push("/blogs");
   })
+}
+
+const handleClose = () => {
+  ElMessageBox.confirm('Are you sure to close this dialog?')
+      .then(() => {
+        done()
+      })
+      .catch(() => {
+        // catch error
+      })
 }
 
 </script>
