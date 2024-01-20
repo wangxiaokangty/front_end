@@ -23,8 +23,7 @@
     </vue-particles>
 
 
-    <div class="welcome-page-center" style="max-width: 960px;margin-left: 200px;
-  margin-right: auto;">
+    <div class="welcome-page-center">
       <Header></Header>
       <!-- 时间线组件，用于展示博客条目 -->
       <el-timeline>
@@ -45,7 +44,7 @@
 
       <!-- 分页器组件 -->
       <el-pagination class="mpage" background layout="prev, pager, next" :current-page="currentPage" :page-size="pageSize"
-        :total="total" @current-change="handlePageChange">
+                     :total="total" @current-change="handlePageChange">
       </el-pagination>
     </div>
   </div>
@@ -72,17 +71,17 @@ export default {
     handlePageChange(newPage) {
       // 使用axios获取数据
       this.$axios.get(`/blogs?currentPage=${newPage}`)
-        .then(response => {
-          const data = response.data.data;
-          this.blogs = data.records;
-          this.currentPage = data.current;
-          this.total = data.total;
-          this.pageSize = data.size;
-        })
-        .catch(error => {
-          console.log("xiaochou")
-          console.error('Error fetching blogs:', error);
-        });
+          .then(response => {
+            const data = response.data.data;
+            this.blogs = data.records;
+            this.currentPage = data.current;
+            this.total = data.total;
+            this.pageSize = data.size;
+          })
+          .catch(error => {
+            console.log("xiaochou")
+            console.error('Error fetching blogs:', error);
+          });
     }
   },
   created() {
@@ -103,11 +102,10 @@ export default {
   width: 70%;
   height: 50%;
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
   bottom: 0;
-  margin: 0;
+  max-width: 960px;
+  margin-left: 200px;
 }
 
 </style>
