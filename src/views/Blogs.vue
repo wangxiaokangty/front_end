@@ -44,7 +44,7 @@
 
       <!-- 分页器组件 -->
       <el-pagination class="mpage" background layout="prev, pager, next" :current-page="currentPage" :page-size="pageSize"
-                     :total="total" @current-change="handlePageChange">
+        :total="total" @current-change="handlePageChange">
       </el-pagination>
     </div>
   </div>
@@ -71,17 +71,17 @@ export default {
     handlePageChange(newPage) {
       // 使用axios获取数据
       this.$axios.get(`/blogs?currentPage=${newPage}`)
-          .then(response => {
-            const data = response.data.data;
-            this.blogs = data.records;
-            this.currentPage = data.current;
-            this.total = data.total;
-            this.pageSize = data.size;
-          })
-          .catch(error => {
-            console.log("xiaochou")
-            console.error('Error fetching blogs:', error);
-          });
+        .then(response => {
+          const data = response.data.data;
+          this.blogs = data.records;
+          this.currentPage = data.current;
+          this.total = data.total;
+          this.pageSize = data.size;
+        })
+        .catch(error => {
+          console.log("xiaochou")
+          console.error('Error fetching blogs:', error);
+        });
     }
   },
   created() {
