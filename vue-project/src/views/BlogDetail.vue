@@ -10,7 +10,7 @@
       <el-link icon="el-icon-edit" v-if="ownBlog && blog.id">
         <!-- 路由链接到博客编辑页面 -->
         <router-link :to="{ name: 'BlogEdit', params: { blogId: blog.id } }">
-          编辑
+          这是您的 blog,可以重新编辑
         </router-link>
       </el-link>
       <!-- 分割线 -->
@@ -28,7 +28,7 @@ import Header from "../components/Header";
 
 export default {
   name: "BlogDetail",
-  components: { Header },
+  components: {Header},
   data() {
     return {
       blog: {
@@ -36,8 +36,7 @@ export default {
         title: "",
         content: ""
       },
-      ownBlog: true
-      // ownBlog: false // 是否为自己的博客
+      ownBlog: false // 是否为自己的博客
     }
   },
   created() {
@@ -45,15 +44,20 @@ export default {
     const blogId = this.$route.params.blogId;
     this.$axios.get(`/blog/${blogId}`).then(res => {
       const blog = res.data.data;
-      this.blog = { ...blog };
+      this.blog = {...blog};
 
       // 使用markdown-it进行Markdown转换
       const MarkdownIt = require("markdown-it");
       const md = new MarkdownIt();
       this.blog.content = md.render(blog.content);
 
-      // 判断博客是否为当前用户所拥有
-      // this.ownBlog = (blog.userId === this.$store.getters.getUser.id);
+      // 从对象中获取id
+      const userId = JSON.parse(sessionStorage.getItem("userInfo")).id;
+      // 打印id或者根据需要进行其他操作
+
+
+      //判断博客是否为当前用户所拥有
+      this.ownBlog = (blog.user_Id === userId);
     });
   }
 }

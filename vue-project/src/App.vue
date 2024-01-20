@@ -21,7 +21,9 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0 auto;
 }
+
 
 /* 导航栏样式 */
 nav {

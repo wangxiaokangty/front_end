@@ -1,10 +1,31 @@
 <template>
   <!-- 主容器 -->
   <div class="mcontainer">
-    <Header></Header>
+
+    <vue-particles
+        color="#70E9C2"
+        :particleOpacity="0.7"
+        :particlesNumber="80"
+        shapeType="polygon"
+        :particleSize="10"
+        linesColor="#70E9C2"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.9"
+        :linesDistance="150"
+        :moveSpeed="3"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+        style="height: 1100px"
+    >
+    </vue-particles>
 
 
-    <div class="block">
+    <div class="welcome-page-center" style="max-width: 960px;margin-left: 200px;
+  margin-right: auto;">
+      <Header></Header>
       <!-- 时间线组件，用于展示博客条目 -->
       <el-timeline>
         <!-- 遍历blogs数组，为每个博客创建一个时间线条目 -->
@@ -28,6 +49,8 @@
       </el-pagination>
     </div>
   </div>
+
+
 </template>
 
 <script>
@@ -57,6 +80,7 @@ export default {
           this.pageSize = data.size;
         })
         .catch(error => {
+          console.log("xiaochou")
           console.error('Error fetching blogs:', error);
         });
     }
@@ -70,7 +94,20 @@ export default {
 <style scoped>
 /* 分页器样式 */
 .mpage {
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   /* 自动外边距实现居中 */
 }
+
+.welcome-page-center {
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0;
+}
+
 </style>

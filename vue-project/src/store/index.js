@@ -1,6 +1,7 @@
 import {createStore} from 'vuex'
 
-export default createStore({
+
+const store = createStore({
     state: {
         token: '',
         userInfo: JSON.parse(sessionStorage.getItem("userInfo"))
@@ -14,7 +15,10 @@ export default createStore({
     mutations: {
         // set
         SET_TOKEN: (state, token) => {
+            console.log("sha")
+            console.log(token)
             state.token = token
+            console.log(state.token)
             localStorage.setItem("token", token)
         },
         SET_USERINFO: (state, userInfo) => {
@@ -31,3 +35,5 @@ export default createStore({
     actions: {},
     modules: {}
 })
+
+export default store;

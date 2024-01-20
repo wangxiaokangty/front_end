@@ -73,11 +73,7 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           // 发送POST请求提交表单数据
-          this.$axios.post('/blog/edit', this.ruleForm, {
-            headers: {
-              "Authorization": localStorage.getItem("token")
-            }
-          }).then(res => {
+          this.$axios.post('/blog/edit', this.ruleForm).then(res => {
             this.$alert('操作成功', '提示', {
               confirmButtonText: '确定',
               callback: action => {
