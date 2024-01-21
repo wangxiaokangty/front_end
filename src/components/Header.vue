@@ -7,14 +7,18 @@
     </div>
 
     <div class="maction">
-      <span><el-link href="/blogs">主页</el-link></span>
       <el-divider direction="vertical"></el-divider>
-      <span><el-link type="success" href="/blog/add">发表博客</el-link></span>
+      <!-- <router-link :to="{ name: 'BlogDetail', params: { blogId: blog.id } }">-->
+<!--      <router-link :to="{ name: 'BlogAdd'}">小丑</router-link>-->
+      <el-button type="primary" @click="click1">主页</el-button>
+      <el-divider direction="vertical"></el-divider>
+      <el-button type="success" @click="click2">发表博客</el-button>
+      <el-divider direction="vertical"></el-divider>
+      <el-button type="danger" @click="logout">退出登录</el-button>
 
       <el-divider direction="vertical"></el-divider>
       <span v-show="!hasLogin"><el-link type="primary" href="/login">登录</el-link></span>
 
-      <span v-show="hasLogin"><el-link type="danger" @click="logout">退出</el-link></span>
     </div>
 
   </div>
@@ -35,6 +39,13 @@ export default {
     }
   },
   methods: {
+    click1(){
+      this.$router.push("/Blogs")
+    },
+    click2(){
+      this.$router.push("/blog/add")
+    },
+
     logout() {
       const _this = this
       _this.$axios.get("/logout", {
@@ -49,9 +60,11 @@ export default {
     }
   },
   created() {
-    if(this.$store.getters.getUser.username) {
-      this.user.username = this.$store.getters.getUser.username
-      this.user.avatar = this.$store.getters.getUser.avatar
+    console.log("测试")
+    let useinfo = JSON.parse(sessionStorage.getItem("userInfo"))
+    console.log(useinfo.username)
+    if(useinfo) {
+      this.user.username = useinfo.username
 
       this.hasLogin = true
     }
@@ -64,7 +77,7 @@ export default {
 
 .m-content {
   max-width: 960px;
-  margin: 0 auto;
+  margin-left: 77px;
   text-align: center;
 }
 .maction {
