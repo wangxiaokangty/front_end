@@ -1,5 +1,24 @@
 <template>
-  <div>
+  <vue-particles
+      color="#70E9C2"
+      :particleOpacity="0.7"
+      :particlesNumber="80"
+      shapeType="polygon"
+      :particleSize="10"
+      linesColor="#70E9C2"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.9"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      style="height: 1100px"
+  >
+  </vue-particles>
+  <div class="xiaochou2">
 
     <Header/>
 
@@ -69,5 +88,15 @@ export default {
   width: 100%;
   min-height: 700px;
   padding: 20px 15px;
+}
+
+.xiaochou2 {
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: 960px;
+  margin-left: 200px;
 }
 </style>

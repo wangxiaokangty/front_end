@@ -1,6 +1,25 @@
 <template>
+  <vue-particles
+      color="#70E9C2"
+      :particleOpacity="0.7"
+      :particlesNumber="80"
+      shapeType="polygon"
+      :particleSize="10"
+      linesColor="#70E9C2"
+      :linesWidth="1"
+      :lineLinked="true"
+      :lineOpacity="0.9"
+      :linesDistance="150"
+      :moveSpeed="3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="push"
+      style="height: 1100px"
+  >
+  </vue-particles>
   <!-- 主容器 -->
-  <div>
+  <div class="xiaochou1">
     <!-- 引入自定义的头部组件 -->
     <Header></Header>
 
@@ -25,7 +44,7 @@
 
         <!-- 表单操作按钮 -->
         <el-form-item>
-          <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
+          <el-button type="primary" @click="submitForm('ruleForm')">编辑</el-button>
           <el-button @click="resetForm('ruleForm')">重置</el-button>
         </el-form-item>
       </el-form>
@@ -110,6 +129,16 @@ export default {
   max-width: 960px;
   margin: 0 auto;
   text-align: center;
+}
+
+.xiaochou1 {
+  width: 70%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  max-width: 960px;
+  margin-left: 200px;
 }
 
 </style>
